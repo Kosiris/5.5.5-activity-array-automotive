@@ -13,14 +13,20 @@ class Car extends Vehicle {
     }
 }
 
-loadPassenger(num) {
+loadPassenger(num); {
     if (this.passengers < this.maxPassengers) {
-        this.passengers = num;
-        return this.passengers
+        if ((num + this.passengers) <= this.maxPassengers) {
+            this.passengers = num;
+            return this.passengers
+        } else {
+            console.log(`${this.make} ${this.model} has no room left.`)
+        }
     } else {
         console.log(`${this.make} ${this.model} is full.`)
     }
 }
+
+
 let v = new VehicleModule.Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
 console.log(v.make)
 
