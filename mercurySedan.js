@@ -2,13 +2,13 @@
 const VehicleModule = require("./vehicleBaseClass")
 
 class Car extends Vehicle {
-    constructor(make, model, color, year, mileage, passengers, maxPassengers, numberOfWheels, maxSpeed, fuel, scheduleService){
+    constructor(make, model, color, year, mileage, passengers, maxPassengers, numberOfWheels, maximumSpeed, fuel, scheduleService){
         super(make, model, year, color, mileage)
         this.maxPassengers = maxPassengers;
         this.passengers = passengers;
         this.fuel = fuel;
-        this.cheduleService = cheduleService;
-        this.maxSpeed = maxSpeed;
+        this.scheduleService = scheduleService;
+        this.maximumSpeed = maximumSpeed;
         this.numberOfWheels = numberOfWheels;
     }
 
@@ -34,9 +34,21 @@ start() {
     }
 }
 
+serviceCheck() {
+    if (this.mileage > 30000) {
+        this.scheduleService = true;
+        return this.scheduleService;
+    }
 }
+
+}
+
 let v = new VehicleModule.Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
 console.log(v.make)
 
+let newCar = new Car("Mercury", "Sedan", "1965", "green", "9000", 0, 5, 4, 160, 10, false)
 
+newCar.loadPassenger(4)
+newCar.start(0)
+newCar.serviceCheck()
 
