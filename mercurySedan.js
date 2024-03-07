@@ -11,9 +11,9 @@ class Car extends Vehicle {
         this.maxSpeed = maxSpeed;
         this.numberOfWheels = numberOfWheels;
     }
-}
 
-loadPassenger(num); {
+
+loadPassenger(num) {
     if (this.passengers < this.maxPassengers) {
         if ((num + this.passengers) <= this.maxPassengers) {
             this.passengers = num;
@@ -26,7 +26,15 @@ loadPassenger(num); {
     }
 }
 
+start() {
+    if (this.fuel > 0) {
+        return this.started = true
+    } else {
+        return this.started = false
+    }
+}
 
+}
 let v = new VehicleModule.Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
 console.log(v.make)
 
